@@ -45,11 +45,12 @@ int main(int argc, char ** argv)
 {
     show_malloc_info();
     
-    char * ptr_arr[200000];
+    char * ptr_arr[2000];
 
-    for(int i=0; i<200000;  i++ )
+    for(int i=0; i<2000;  i++ )
     {
-        ptr_arr[i] = (char*)malloc(i*8); 
+        sleep(1); 
+        ptr_arr[i] = (char*)malloc(i*1024); 
     }
     
     show_malloc_info();

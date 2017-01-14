@@ -23,21 +23,21 @@ S_OJBS         = $(patsubst  %S,%o , $(S_SOURCE))
 	@echo  Compiling
 	@$(CC)  -c $< -o $@ 
 
-MY_INC=
-MY_LIB= 
 
 
 objects = $(C_OBJS)  $(CPP_OBJS)  $(S_OJBS)
 
+app_bins = kv_config_test 
 
-APP_TARGET= malloc_info_test
+all:$(app_bins)
+kv_config_test: $(objects)	
+	@echo $(objects)
+	$(CC) -o $@ $^
 
-all:$(APP_TARGET)
-malloc_info_test :  malloc_info_test.o
-	$(CC)  $< -o $@ 
 
 
 
 clean:
-	rm *.o  $(APP_TARGET) 
+	rm *.o
+	rm $(app_bins)
 
